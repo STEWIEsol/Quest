@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stewie Quest</title>
+    <style>
+        #gameContainer {
+            border: 1px solid #000;
+            margin-bottom: 20px;
+        }
+        #ad-container {
+            display: none;
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stewie Quest - Tap to Play</h1>
+    <canvas id="gameContainer" width="300" height="300"></canvas>
+    <div id="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; height:100%;"
+             data-ad-client="ca-pub-2878555595185796"
+             data-ad-slot="9248171491"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+    </div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2878555595185796" crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+
+        let clickCount = 0;
+        const gameContainer = document.getElementById('gameContainer');
+        const adContainer = document.getElementById('ad-container');
+
+        gameContainer.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount >= 100) {
+                adContainer.style.display = 'block';
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                clickCount = 0; // Reset click count or implement logic to control ad display frequency
+            }
+        });
+    </script>
+</body>
+</html>
